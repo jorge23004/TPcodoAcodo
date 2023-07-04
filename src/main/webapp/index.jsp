@@ -69,7 +69,7 @@
                 </p>
                 <div>
                     <button type="button" class="btn btn-outline-light">Quiero ser orador</button>
-                    <button type="button" class="btn btn-success" onclick="location.href='HTML/ticket.html'">
+                    <button type="button" class="btn btn-success" onclick="location.href='HTML/ticket.jsp'">
                         Comprar tickets
                     </button>
                 </div>

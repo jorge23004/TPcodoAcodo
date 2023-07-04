@@ -207,6 +207,19 @@ footer {
     font-size: 15px !important;
 }
 
+/* Pagina Oradores */
+
+.pagina-oradores img{
+    filter: brightness(90%);
+}
+
+.titulo-carousel-oradores{
+    color: antiquewhite;
+    text-align: center;
+    font-size: 25px;
+}
+
+
 
 /* Responsive */
 

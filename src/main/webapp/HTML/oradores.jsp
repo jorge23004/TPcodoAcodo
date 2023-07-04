@@ -1,3 +1,7 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.Statement"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -28,13 +32,13 @@
                             <a class="nav-link" aria-current="page" href="../index.jsp">La conferencia</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="oradores.jsp">Los oradores</a>
+                            <a class="nav-link active" href="oradores.jsp">Los oradores</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">El lugar y la fecha</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  active" href="#">Conviértete en orador</a>    
+                            <a class="nav-link" href="#">Conviértete en orador</a>    
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link-verde-ticket" href="ticket.jsp">Comprar tickets</a>
@@ -44,28 +48,56 @@
             </div>
         </nav>
     </header> 
-    <div id="carouselExample" class="carousel slide card-superpuesta" data-bs-ride="carousel">
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="../imagenes/ba1.jpg" class="d-block w-100" alt="Buenos Aires">
+            <div class="carousel-item active pagina-oradores">
+                <img src="../imagenes/Buenos-Aires-2.jpg" class="d-block w-100" alt="Buenos Aires">
             </div>
-            <div class="carousel-item">
-                <img src="../imagenes/ba2.jpg" class="d-block w-100" alt="Buenos Aires">
+            <div class="carousel-item pagina-oradores">
+                <img src="../imagenes/Buenos-Aires-5.jpg" class="d-block w-100" alt="Buenos Aires">
             </div>
-            <div class="carousel-item">
-                <img src="../imagenes/ba3.jpg" class="d-block w-100" alt="Obelisco">
+            <div class="carousel-item pagina-oradores">
+                <img src="../imagenes/Buenos-Aires-3.jpg" class="d-block w-100" alt="Obelisco">
             </div>
         </div>
-    <div class="text-center mt-3 mb-4">
+    </div>    
+    <% 
+        String server = "localhost";
+        String puerto = "3306";
+        String bbdd = "prueba_cac";
+        String url = "jdbc:mysql://" + server + ":" + puerto + "/";
+        String usuario = "root";
+        String password = "4842";
+
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection con = DriverManager.getConnection(url+bbdd, usuario, password);
+
+        Statement mysql = con.createStatement();
+
+        String oradores = "SELECT nombre, apellido, idioma, tematica, fecha_conferencia, hora_conferencia FROM oradores";
+        ResultSet resultado = mysql.executeQuery(oradores);
+    %>    
+    <div class="container table-responsive text-center mt-3 mb-4">
         <h2 class="m-0">Lista de Oradores</h2> 
-        <table class="tabla table table-striped mt-5 d-flex justify-content-around">
-            <tr>
-                <th class="pe-5">ID</th>
+        <table class="table-bordered table table-striped mt-5 d-flex justify-content-around">
+            <tr class="table-dark">
                 <th class="pe-5">NOMBRE</th>
                 <th class="pe-5">APELLIDO</th>
-                <th class="pe-5">DNI</th>
+                <th class="pe-5">IDIOMA</th>
                 <th class="pe-5">TEMÁTICA</th>
+                <th class="pe-5">FECHA</th>
+                <th class="pe-5">HORA</th>
             </tr>
+            <%  while (resultado.next()) { %>
+            <tr>
+                <td class="pe-5"><%= resultado.getString("nombre") %></td>
+                <td class="pe-5"><%= resultado.getString("apellido") %></td>
+                <td class="pe-5"><%= resultado.getString("idioma") %></td>
+                <td class="pe-5"><%= resultado.getString("tematica") %></td>
+                <td class="pe-5"><%= resultado.getDate("fecha_conferencia") %></td>
+                <td class="pe-5"><%= resultado.getString("hora_conferencia") %></td>
+            </tr>
+            <%}%>
         </table>      
     </div>
     <footer>   

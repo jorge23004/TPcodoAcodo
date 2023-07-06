@@ -77,9 +77,9 @@
         String oradores = "SELECT nombre, apellido, idioma, tematica, fecha_conferencia, hora_conferencia FROM oradores";
         ResultSet resultado = mysql.executeQuery(oradores);
     %>    
-    <div class="container table-responsive text-center mt-3 mb-4">
+    <div class="container table-responsive text-center mt-5 mb-4">
         <h2 class="m-0">Lista de Oradores</h2> 
-        <table class="table-bordered table table-striped mt-5 d-flex justify-content-around">
+        <table class="table-bordered table table-striped mt-5">
             <tr class="table-dark">
                 <th class="pe-5">NOMBRE</th>
                 <th class="pe-5">APELLIDO</th>

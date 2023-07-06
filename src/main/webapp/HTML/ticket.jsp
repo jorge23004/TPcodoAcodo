@@ -19,7 +19,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggler">
-                    <a class="navbar-brand" href="../index.jsps">
+                    <a class="navbar-brand" href="../index.jsp">
                         <img id="logo-pagina" src="../imagenes/codoacodo.png" width="100" alt="Logo de la pagina">
                         <span class="nombre-logo">Conf Bs As</span>
                     </a>
@@ -111,7 +111,7 @@
             </div>
         </div>
     </form>
-    <footer>   
+    <footer>    
         <div class="footer-lista footer-ticket justify-content-center align-items-center">
             <a class="nav-link footer-link text-center" href="#">Preguntas<br>Frecuentes</a>
             <a class="nav-link footer-link text-center" href="#">Contáctanos</a>

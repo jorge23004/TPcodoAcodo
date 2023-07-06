@@ -197,7 +197,6 @@ footer {
 }
 
 .footer-ticket{
-    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -207,18 +206,13 @@ footer {
     font-size: 15px !important;
 }
 
+
+
 /* Pagina Oradores */
 
 .pagina-oradores img{
     filter: brightness(90%);
 }
-
-.titulo-carousel-oradores{
-    color: antiquewhite;
-    text-align: center;
-    font-size: 25px;
-}
-
 
 
 /* Responsive */
@@ -292,5 +286,12 @@ footer {
     .container-oradores {
         margin-top: 20px;
         padding: 1rem 2rem;
+    }
+}
+
+@media screen and (min-width: 848px) and (min-height: 850px){
+
+    .footer-ticket{
+        position: fixed;
     }
 }
